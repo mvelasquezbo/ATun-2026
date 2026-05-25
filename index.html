@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDai - Informe de Gestión 2026-1</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===================================================
+           ESTRETEGIA VISUAL: Paleta de colores e Identidad UNAL
+           =================================================== */
+        :root {
+            --primary-blue: #0b294a;       /* Azul oscuro de los prismas y la cartilla */
+            --secondary-blue: #1e4570;     /* Azul intermedio para interactividad */
+            --light-blue: #eef4fa;         /* Fondo suave para lectura */
+            --accent-ocean: #00f2fe;       /* Acento marino para resaltar elementos */
+            --text-dark: #222222;          /* Texto principal */
+            --text-light: #ffffff;         /* Texto sobre fondos oscuros */
+            --border-color: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        /* Encabezado Principal de la Cartilla */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--text-light);
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .subtitle-inst {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-ocean);
+            margin-top: 10px;
+        }
+
+        /* Menú de Navegación Interactivo (Pestañas) */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            background-color: var(--text-light);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            padding: 10px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: var(--secondary-blue);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            box-shadow: 0 4px 10px rgba(11, 41, 74, 0.3);
+        }
+
+        /* Contenedores de Información */
+        .content-section {
+            background-color: var(--text-light);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: none; /* Ocultas por defecto, JS las muestra */
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--secondary-blue);
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Cuadrícula para Identidad (Misión/Visión) */
+        .grid-identity {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        @media (min-width: 600px) {
+            .grid-identity { grid-template-columns: 1fr 1fr; }
+        }
+
+        .card-identity {
+            background-color: var(--light-blue);
+            border-left: 5px solid var(--primary-blue);
+            padding: 15px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Estilo de Tablas para la Metodología y Cronograma */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background-color: var(--text-light);
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Alertas o Destacados de Problemática */
+        .alert-box {
+            background-color: #ffebe6;
+            border-left: 5px solid #ff4d4d;
+            padding: 15px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 15px;
+        }
+
+        /* Footer con Datos de Contacto */
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>INFORME FINAL DE GESTIÓN 2026-1</h1>
+        <p>En ATUN no solo informamos, te formamos</p>
+        <div class="subtitle-inst">Área de Acompañamiento Integral • Dirección de Bienestar • Sede Bogotá</div>
+    </header>
+
+    <nav>
+        <button class="tab-btn active" onclick="openTab(event, 'inicio')">01. ¿Quiénes Somos?</button>
+        <button class="tab-btn" onclick="openTab(event, 'problematica')">02. Problemática</button>
+        <button class="tab-btn" onclick="openTab(event, 'modelos')">03. Modelos Teóricos</button>
+        <button class="tab-btn" onclick="openTab(event, 'objetivos')">04. Iniciativas</button>
+        <button class="tab-btn" onclick="openTab(event, 'metodologia')">05. Metodología</button>
+        <button class="tab-btn" onclick="openTab(event, 'planificacion')">06. Planificación</button>
+    </nav>
+
+    <div id="inicio" class="content-section active">
+        <h2>¿QUÉ ES REDai?</h2>
+        <p>Es un proyecto académico enfocado en fortalecer la permanencia estudiantil, mejorar la experiencia universitaria y apoyar el rendimiento académico general mediante el desarrollo colaborativo de una sólida iniciativa estudiantil.</p>
+        
+        <p>Somos un equipo interdisciplinario que ofrece asesorías, talleres y variados recursos informativos para lograr que los estudiantes conozcan a fondo sus derechos y actúen con total seguridad dentro de la institución.</p>
+
+        <div class="grid-identity">
+            <div class="card-identity">
+                <h3>MISIÓN</h3>
+                <p>Fortalecer la autonomía estudiantil brindando orientación clara en trámites académicos, promoviendo el bienestar, las decisiones informadas y la permanencia universitaria.</p>
+            </div>
+            <div class="card-identity">
+                <h3>VISIÓN</h3>
+                <p>Ser referente en orientación de trámites académicos, promoviendo acompañamiento, corresponsabilidad, autonomía y éxito en la trayectoria estudiantil universitaria.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="problematica" class="content-section">
+        <h2>¿QUÉ PROBLEMÁTICA ENCONTRAMOS?</h2>
+        <div class="alert-box">
+            <p>El análisis de la problemática administrativa revela que la alta burocracia y la falta de autonomía generan descontento y problemas de salud mental en el estudiantado (como estrés y depresión).</p>
+        </div>
+        <p>Además, existe un notable desconocimiento sobre cómo gestionar trámites de manera ágil para evitar la deserción estudiantil. Cuando los estándares de transparencia, digitalización y claridad en tiempos no se cumplen, se crea una frustración que limita la trayectoria estudiantil.</p>
+        
+        <h3>Posibles Soluciones Planteadas:</h3>
+        <ul>
+            <li><strong>Estrategias comunicativas:</strong> Fortalecer canales digitales y físicos con lenguaje no técnico para facilitar la comprensión de los trámites.</li>
+            <li><strong>Jornadas y talleres:</strong> Fomentar la autonomía en los trámites de uso común en la universidad.</li>
+            <li><strong>Herramientas claras:</strong> Generar recursos físicos y digitales que aproximen al estudiante al conocimiento administrativo.</li>
+        </ul>
+    </div>
+
+    <div id="modelos" class="content-section">
+        <h2>MODELOS DE ANÁLISIS</h2>
+        
+        <h3>1. Modelo de Bronfenbrenner (Tejido de Influencias)</h3>
+        <ul>
+            <li><strong>Microsistema:</strong> El día a día definido por el contacto directo con amigos, familia y docentes.</li>
+            <li><strong>Mesosistema:</strong> Cruce de mundos (ej. problemas familiares que afectan el rendimiento), donde herramientas como ATun intervienen como guía de ayuda.</li>
+            <li><strong>Exosistema:</strong> Normas, resoluciones y calendarios institucionales que dictan el ritmo de los trámites.</li>
+            <li><strong>Macrosistema:</strong> Capital cultural, social y políticas de inclusión y permanencia que moldean la percepción estudiantil.</li>
+            <li><strong>Cronosistema:</strong> Elementos dinámicos del tiempo, uso de redes sociales, etapas académicas (Ingreso, Durante, Egreso) y momentos críticos (Inscripciones/Cancelaciones), además de coyunturas (paros, pandemias).</li>
+        </ul>
+
+        <h3>2. Modelo de Deserción</h3>
+        <p>Analiza el camino hacia la <strong>Graduación</strong> a través de tres componentes clave:</p>
+        <ul>
+            <li><strong>Antecedentes Iniciales:</strong> Condiciones socioeconómicas, educación previa, procedencia, etnia, género o discapacidad.</li>
+            <li><strong>Integración Académica y Social:</strong> Motivación interna, hábitos de estudio, apoyo de redes como REDai/Psicología, orientación profesional y traslados (Motivación Externa).</li>
+            <li><strong>Compromiso:</strong> La articulación de estos factores define la permanencia o el abandono.</li>
+        </ul>
+    </div>
+
+    <div id="objetivos" class="content-section">
+        <h2>NUESTRAS INICIATIVAS</h2>
+        <h3>Objetivo General</h3>
+        <p>Contribuir a la permanencia, la autonomía y la reducción de la incertidumbre en la gestión de trámites académico-administrativos de los estudiantes de pregrado de la Universidad Nacional de Colombia a través de estrategias de acceso a la información y de apoyo emocional que fomenten la toma de decisiones informadas en el periodo 2026-1.</p>
+        
+        <h3>Objetivos Específicos</h3>
+        <ol>
+            <li>Facilitar el acceso claro y oportuno a la información mediante estrategias presenciales y digitales.</li>
+            <li>Desarrollar espacios formativos sobre procedimientos, requisitos y rutas de trámites para promover la autonomía.</li>
+            <li>Brindar herramientas de apoyo y gestión emocional para reducir la preocupación al realizar trámites.</li>
+            <li>Identificar y visibilizar las principales dificultades estudiantiles para generar insumos de mejora.</li>
+        </ol>
+    </div>
+
+    <div id="metodologia" class="content-section">
+        <h2>METODOLOGÍA DE TRABAJO</h2>
+        <p>Se estructuraron las acciones en dos grandes estrategias de intervención:</p>
+        
+        <h3>Estrategia 1: Factores Emocionales ante el Trámite</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Metodología</th>
+                        <th>Especificaciones / Recursos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ciclo de Talleres ATUN-TRAMITANDO</strong><br>(Acciones Grupales)</td>
+                        <td>Talleres participativos, pedagógicos y reflexivos (Cancelación de materias, Traslados, Doble titulación, Reubicación socioeconómica).</td>
+                        <td>• Google Meet, Mentimeter, Equipos.<br>• 20 personas por taller.<br>• 8 sesiones (2 por semana).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Muro de los Lamentos</strong><br>(Acciones Colectivas)</td>
+                        <td>Espacio físico participativo en la plaza central (Edificio viejo de Enfermería) para expresar experiencias e inconformidades.</td>
+                        <td>• Papel periódico gigante, marcadores.<br>• 10 personas por sesión.<br>• 2 sesiones (Máx. 1 hora).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Estrategia 2: Factores de Acceso Autónomo a la Información</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Metodología</th>
+                        <th>Especificaciones / Recursos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Diseño de Página Web</strong></td>
+                        <td>Construcción de sitio web para recopilar, organizar y presentar los resultados semestrales del Proyecto ATun.</td>
+                        <td>• Computador, Equipo ATun.<br>• 5 sesiones de avance técnico.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trámite de la Semana</strong><br>(Acción Colectiva)</td>
+                        <td>Diseño y difusión semanal de contenido digital enfocado en trámites específicos por redes sociales.</td>
+                        <td>• Instagram, Canva, Celular.<br>• Alcance: 1000 a 2000 personas.<br>• 4 sesiones (1 hora de grabación).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cajita de Preguntas</strong></td>
+                        <td>Espacio interactivo semanal en redes mediante encuestas y resolución de dudas directas.</td>
+                        <td>• Herramientas de interacción en redes sociales.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="planificacion" class="content-section">
+        <h2>PLANIFICACIÓN SEMANAL (CRONOGRAMA)</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Semana / Fecha</th>
+                        <th>Actividad Ejecutada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Semana 0</strong> (23-27 Mar)</td><td>Socialización normativa (Acuerdo 020 de 2018) y figura de estudiante auxiliar.</td></tr>
+                    <tr><td><strong>Semana 1</strong> (30 Mar - 03 Abr)</td><td>Planeación inicial: Revisión de la ruta de salud mental y compromisos éticos.</td></tr>
+                    <tr><td><strong>Semana 2</strong> (06-10 Abr)</td><td>Análisis de viabilidad: Evaluación de propuestas de IA mediante matriz impacto-esfuerzo.</td></tr>
+                    <tr><td><strong>Semana 3</strong> (13-17 Abr)</td><td>Distribución de roles: Delegación de tareas para actualizar cartilla y síntesis en Canva.</td></tr>
+                    <tr><td><strong>Semana 4</strong> (20-24 Abr)</td><td>Estudio de población: Interpretación de modelos estadísticos e introducción a Bronfenbrenner.</td></tr>
+                    <tr><td><strong>Semana 5</strong> (27 Abr - 01 May)</td><td>Consolidación de iniciativa: Definición de estrategias en Instagram (reels/fotos) y cronograma.</td></tr>
+                    <tr><td><strong>Semana 6</strong> (04-08 May)</td><td>Ajuste de contenidos: Revisión de tecnicismos en la cartilla y aplicación de casos reales.</td></tr>
+                    <tr><td><strong>Semana 7</strong> (11-15 May)</td><td>Preparación logística: Organización de Drive, síntesis de artículos y mapas mentales.</td></tr>
+                    <tr><td><strong>Semana 8</strong> (18-22 May)</td><td>Seguimiento interno: Revisión de avances del informe de gestión y ajustes en piezas de diseño.</td></tr>
+                    <tr><td><strong>Semana 9</strong> (25-29 May)</td><td>Finalización de insumos: Cierre de recolección de literatura y preparación de talleres.</td></tr>
+                    <tr><td><strong>Semana 10</strong> (01-05 Jun)</td><td>Ejecución de actividades: Realización del Taller 1 de reubicación y cargue de video instructivo.</td></tr>
+                    <tr><td><strong>Semana 11</strong> (08-12 Jun)</td><td>Diseño de herramientas: Creación del calendario de trámites para el periodo 2026-2 en Canva.</td></tr>
+                    <tr><td><strong>Semana 12</strong> (15-19 Jun)</td><td>Evaluación de impacto: Registro de acompañamientos itinerantes y evidencias fotográficas.</td></tr>
+                    <tr><td><strong>Semana 13</strong> (22-26 Jun)</td><td>Cierre administrativo: Finalización oficial de actividades REDai 2026-1 y entrega de productos.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Universidad Nacional de Colombia • Dirección de Bienestar UNAL Bogotá</strong></p>
+        <p>Contacto: aaintegral@unal.edu.co | Tel: 316 5000 Ext. 17171-17172</p>
+    </footer>
+
+    <script>
+        function openTab(evt, sectionName) {
+            // Ocultar todas las secciones
+            const sections = document.getElementsByClassName("content-section");
+            for (let i = 0; i < sections.length; i++) {
+                sections[i].classList.remove("active");
+            }
+
+            // Desactivar todos los botones
+            const buttons = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Mostrar la sección actual y activar el botón presionado
+            document.getElementById(sectionName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
