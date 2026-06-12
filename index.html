@@ -10,15 +10,20 @@
     
     <style>
         /* ===================================================
-           ESTRATEGIA VISUAL: Paleta de colores e Identidad UNAL
+           ESTRATEGIA VISUAL: Paleta de colores e Identidad
            =================================================== */
         :root {
-            --primary-blue: #0b294a;       /* Azul oscuro de los prismas y la cartilla */
-            --secondary-blue: #1e4570;     /* Azul intermedio para interactividad */
-            --light-blue: #eef4fa;         /* Fondo suave para lectura */
-            --accent-ocean: #00f2fe;       /* Acento marino para resaltar elementos */
-            --text-dark: #222222;          /* Texto principal */
-            --text-light: #ffffff;         /* Texto sobre fondos oscuros */
+            /* Colores de fondo de tu imagen (reutilizados) */
+            --header-gradient-start: #001f44; /* Azul oscuro profundo de la imagen */
+            --header-gradient-end: #003366;   /* Azul medio de la imagen */
+            
+            /* Tu paleta original para el resto de la página */
+            --primary-blue: #0b294a;
+            --secondary-blue: #1e4570;
+            --light-blue: #eef4fa;
+            --accent-ocean: #00f2fe; /* El cian llamativo para acentos */
+            --text-dark: #222222;
+            --text-light: #ffffff;
             --border-color: #cbd5e1;
         }
 
@@ -41,14 +46,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(11, 41, 74, 0.95);
+            background: rgba(0, 31, 68, 0.9); /* Más oscuro para que coincida */
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         nav .logo {
@@ -79,10 +84,13 @@
             border-bottom: 2px solid var(--accent-ocean);
         }
 
-        /* Hero / Cabecera con Movimiento */
+        /* ===================================================
+           Hero / Cabecera (ESTILO DE TU IMAGEN)
+           =================================================== */
         header {
             height: 100vh;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            /* Degradado azul oscuro y difuminado como en tu imagen */
+            background: radial-gradient(circle at center, var(--header-gradient-end), var(--header-gradient-start));
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -91,28 +99,41 @@
             color: var(--text-light);
             position: relative;
             padding: 20px;
+            overflow: hidden; /* Para contener efectos de fondo si los añades */
+        }
+
+        /* Estilo para simular el fondo difuminado "que casi no se note" */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 4px);
+            opacity: 0.5; /* Sutil patrón de fondo */
         }
 
         header h1 {
             font-size: 3.5rem;
+            font-weight: 700;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: float 3s ease-in-out infinite;
+            position: relative; /* Para el data-aos */
+            line-height: 1.2;
         }
 
         header h1 span {
-            color: var(--accent-ocean);
+            color: var(--accent-ocean); /* El texto cian llamativo */
         }
 
         header p {
             font-size: 1.2rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-bottom: 30px;
             opacity: 0.9;
+            line-height: 1.6;
         }
 
-        /* Efecto de Ola Decorativa */
+        /* Efecto de Ola Decorativa (tu original) */
         .wave {
             position: absolute;
             bottom: 0;
@@ -130,10 +151,12 @@
         }
 
         .wave .shape-fill {
-            fill: var(--light-blue);
+            fill: var(--light-blue); /* Se funde con el fondo de la página */
         }
 
-        /* Contenedores de Secciones Continuas */
+        /* ===================================================
+           Resto de secciones (Código original mantenido)
+           =================================================== */
         section {
             padding: 100px 20px 60px 20px;
             max-width: 1200px;
@@ -158,7 +181,6 @@
             border-radius: 2px;
         }
 
-        /* Grid general para flexibilizar vistas */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -172,7 +194,6 @@
             gap: 30px;
         }
 
-        /* Tarjetas o Contenedores de Información */
         .card {
             background: white;
             padding: 30px;
@@ -192,7 +213,6 @@
             margin-bottom: 15px;
         }
 
-        /* Estilo para las Imágenes de los reportes */
         .img-container {
             width: 100%;
             border-radius: 12px;
@@ -213,7 +233,6 @@
             transform: scale(1.05);
         }
 
-        /* Sección Mar de los lamentos */
         #mar-lamentos {
             background: linear-gradient(180deg, var(--light-blue), #d4e6f1);
             border-radius: 30px;
@@ -230,7 +249,6 @@
             margin-top: 10px;
         }
 
-        /* Contenedores para Embeber Instagram de manera fluida */
         .instagram-embed-container {
             display: flex;
             justify-content: center;
@@ -242,13 +260,11 @@
             min-height: 400px;
         }
 
-        /* Animación de Flote */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
 
-        /* Footer */
         footer {
             background: var(--primary-blue);
             color: var(--text-light);
@@ -262,10 +278,9 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             header h1 { font-size: 2.3rem; }
-            nav ul { display: none; } /* Simplificación para móviles */
+            nav ul { display: none; }
         }
     </style>
 </head>
@@ -283,12 +298,13 @@
     </nav>
 
     <header>
-        <h1 data-aos="zoom-in">ATun, <span>Tramitando-ando 2026-1</span></h1>
+        <h1 data-aos="zoom-in">ATUN,<br><span>TRAMITANDO-ANDO 2026-1</span></h1>
         <p data-aos="fade-up" data-aos-delay="200">Evidencias, resultados y el impacto de la gestión y acompañamiento estudiantil en la Universidad Nacional de Colombia de manera divertida y dinámica.</p>
+        
         <i class="fa-solid fa-chevron-down" style="font-size: 2rem; color: var(--accent-ocean); margin-top: 30px; animation: float 2s infinite;"></i>
         
         <div class="wave">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="none">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
             </svg>
         </div>
@@ -298,13 +314,13 @@
         <h2 class="section-title">Calendario de Trámites</h2>
         <div class="grid-2">
             <div class="card" data-aos="fade-right">
-                <h3>Planeación y Cronograma 2026-1</h3>
+                <h3>Planeación y Cronograma 2026-2</h3>
                 <p>Presentamos la hoja de ruta establecida para el periodo académico, consolidando las fechas críticas de reubicación socioeconómica, doble titulación y cancelaciones, garantizando que toda la comunidad estudiantil contara con información oportuna.</p>
                 <br>
                 <p><strong>Nota de Proyección:</strong> En el recuadro visual se anexa el resumen gráfico oficial preparado para el siguiente periodo (2026-2).</p>
             </div>
             <div class="img-container" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80" alt="Resumen Trámites 2026-2">
+                <img src="IMAGEN_REPORTE_1.jpg" alt="Resumen Trámites 2026-2">
             </div>
         </div>
     </section>
@@ -317,13 +333,13 @@
             </p>
             <div class="grid-3">
                 <div class="img-container" data-aos="flip-left">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&q=80" alt="Itinerante 1">
+                    <img src="ITINERANTE_FOTO_1.jpg" alt="Itinerante 1">
                 </div>
                 <div class="img-container" data-aos="flip-left" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400&q=80" alt="Itinerante 2">
+                    <img src="ITINERANTE_FOTO_2.jpg" alt="Itinerante 2">
                 </div>
                 <div class="img-container" data-aos="flip-left" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=400&q=80" alt="Itinerante 3">
+                    <img src="ITINERANTE_FOTO_3.jpg" alt="Itinerante 3">
                 </div>
             </div>
         </div>
@@ -335,8 +351,12 @@
         
         <div class="grid-2">
             <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
-                <div class="img-container"><img src="https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&w=300&q=80" alt="Muro físico 1"></div>
-                <div class="img-container"><img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=300&q=80" alt="Muro físico 2"></div>
+                <div class="img-container">
+                    <img src="FOTO_MURO_1.jpg" alt="Muro físico 1">
+                </div>
+                <div class="img-container">
+                    <img src="FOTO_MURO_2.jpg" alt="Muro físico 2">
+                </div>
             </div>
             <div>
                 <div class="card" style="margin-bottom: 15px;">
@@ -358,35 +378,26 @@
         </div>
     </section>
 
-    <section id="pagina-web">
-        <h2 class="section-title">Plataforma Web ATun</h2>
-        <div class="card" style="text-align: center; background: linear-gradient(135deg, #fff, var(--light-blue)); border-left: none; border-top: 5px solid var(--accent-ocean);" data-aos="zoom-in">
-            <i class="fa-solid fa-laptop-code" style="font-size: 3rem; color: var(--secondary-blue); margin-bottom: 20px;"></i>
-            <h3>¡Estás navegando en ella!</h3>
-            <p>Este portal fue diseñado con arquitectura estática optimizada para GitHub Pages. Integra animaciones dinámicas basadas en el scroll del usuario mediante <strong>AOS.js</strong> y estilos adaptativos basados en los lineamientos gráficos de la cartilla institucional.</p>
-        </div>
-    </section>
-
     <section id="talleres">
         <h2 class="section-title">Talleres Dictados (REDai)</h2>
         <div class="grid-3">
             <div class="card" data-aos="fade-up">
                 <div class="img-container" style="margin-bottom:15px;">
-                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=400&q=80" alt="Taller Cancelación">
+                    <img src="TALLER_CANCELACION.jpg" alt="Taller Cancelación">
                 </div>
                 <h3>Cancelación de Asignaturas</h3>
                 <p>Orientación sobre los procesos de cancelación de asignaturas y del periodo académico completo para evitar la pérdida de cupos.</p>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="100">
                 <div class="img-container" style="margin-bottom:15px;">
-                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=400&q=80" alt="Taller Traslado">
+                    <img src="TALLER_DOBLE.jpg" alt="Taller Traslado">
                 </div>
                 <h3>Doble Titulación y Traslados</h3>
                 <p>Paso a paso detallado para realizar la solicitud de traslado de programa curricular a través del portal oficial del SIA.</p>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="200">
                 <div class="img-container" style="margin-bottom:15px;">
-                    <img src="https://images.unsplash.com/photo-1552581234-2612b75d8953?auto=format&fit=crop&w=400&q=80" alt="Reubicación Socioeconómica">
+                    <img src="TALLER_REUBICACION.jpg" alt="Reubicación Socioeconómica">
                 </div>
                 <h3>Reubicación Socioeconómica</h3>
                 <p>Análisis de mitos y realidades, y acompañamiento profesional para el diligenciamiento correcto de solicitudes de reestratificación financiera.</p>
@@ -403,10 +414,10 @@
                 <div style="text-align:center;">
                     <i class="fa-brands fa-instagram" style="font-size: 3rem; color: #e1306c; margin-bottom: 15px;"></i>
                     <p><strong>Reel: Reubicación Socioeconómica</strong></p>
-                    <p style="font-size:0.8rem; opacity:0.6; margin-bottom:15px;">(Cargue de video trámite de la semana)</p>
-                    <div style="background:#f0f0f0; width:100%; height:320px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
-                        [Aquí se visualizará el Reel de Instagram]
-                    </div>
+                    <p style="font-size:0.8rem; opacity:0.6; margin-bottom:15px;">(Trámite de la semana)</p>
+                    <div style="background:#f0f0f0; width:100%; height:320px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666; padding: 20px;">
+                        <p>[Aquí se visualizará el Reel. Inserta el código embed]</p>
+                        </div>
                 </div>
             </div>
 
@@ -415,9 +426,9 @@
                     <i class="fa-brands fa-instagram" style="font-size: 3rem; color: #e1306c; margin-bottom: 15px;"></i>
                     <p><strong>Cajita de Preguntas Semanal</strong></p>
                     <p style="font-size:0.8rem; opacity:0.6; margin-bottom:15px;">Respuestas en tiempo real a dudas de la comunidad</p>
-                    <div style="background:#f0f0f0; width:100%; height:320px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666;">
-                        [Aquí se visualizará la interacción de Historias]
-                    </div>
+                    <div style="background:#f0f0f0; width:100%; height:320px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#666; padding: 20px;">
+                         <p>[Aquí se visualizará la interacción. Inserta el código embed]</p>
+                         </div>
                 </div>
             </div>
         </div>
