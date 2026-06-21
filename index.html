@@ -9,9 +9,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <style>
-        /* ============================================================
-           PALETA ATUN (azul profundo + cian)
-           ============================================================ */
         :root {
             --azul-oscuro: #0b294a;
             --azul-medio: #1e4570;
@@ -187,7 +184,7 @@
             color: var(--azul-oscuro);
         }
 
-        /* ---------- HERO (INICIO) ---------- */
+        /* ---------- INICIO ---------- */
         #inicio {
             padding-top: 120px;
         }
@@ -249,7 +246,7 @@
             z-index: 1;
         }
 
-        /* ---------- ANTECEDENTES (dentro de inicio) ---------- */
+        /* ---------- ANTECEDENTES ---------- */
         .antecedentes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -261,68 +258,7 @@
             border-top: 5px solid var(--cian);
         }
 
-        .modelo-bronfe {
-            background: var(--azul-claro);
-            padding: 30px;
-            border-radius: var(--radius);
-            margin-top: 40px;
-        }
-
-        .modelo-bronfe h3 {
-            color: var(--azul-oscuro);
-            margin-bottom: 15px;
-        }
-
-        .modelo-bronfe ul {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-        }
-
-        .modelo-bronfe ul li {
-            background: white;
-            padding: 12px 16px;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        /* ---------- PLANEACIÓN ---------- */
-        .cronograma-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--sombra);
-            font-size: 0.95rem;
-        }
-
-        .cronograma-table th {
-            background: var(--azul-oscuro);
-            color: white;
-            padding: 16px 20px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .cronograma-table td {
-            padding: 14px 20px;
-            border-bottom: 1px solid #f0f3f7;
-        }
-
-        .cronograma-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .cronograma-table tr:hover td {
-            background: #f8fafc;
-        }
-
-        /* ---------- EJECUCIÓN / TALLERES ---------- */
+        /* ---------- TALLERES ---------- */
         .taller-card {
             background: white;
             border-radius: var(--radius);
@@ -381,6 +317,31 @@
             font-style: italic;
         }
 
+        .arbol-razones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .arbol-razones .categoria {
+            background: #f8fafc;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border-left: 4px solid var(--cian);
+        }
+
+        .arbol-razones .categoria strong {
+            color: var(--azul-oscuro);
+        }
+
+        .arbol-razones .categoria ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+
         /* ---------- MURO DE LOS LAMENTOS ---------- */
         .muro-grid {
             display: grid;
@@ -402,7 +363,14 @@
             margin-right: 8px;
         }
 
-        /* ---------- TRÁMITE DE LA SEMANA / INSTAGRAM ---------- */
+        .muro-descripcion {
+            background: var(--azul-claro);
+            padding: 20px 25px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+        }
+
+        /* ---------- INSTAGRAM ---------- */
         .instagram-placeholder {
             background: #f2f5f9;
             border-radius: 16px;
@@ -489,12 +457,8 @@
             .grid-3 {
                 grid-template-columns: 1fr;
             }
-            .cronograma-table {
-                font-size: 0.8rem;
-            }
-            .cronograma-table th,
-            .cronograma-table td {
-                padding: 10px 8px;
+            .arbol-razones {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -506,7 +470,6 @@
         <div class="logo"><i class="fa-solid fa-fish-fins"></i> ATUN 2026-1</div>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#planeacion">Planeación</a></li>
             <li><a href="#ejecucion">Ejecución</a></li>
             <li><a href="#cierre">Cierre</a></li>
         </ul>
@@ -516,7 +479,7 @@
     <section id="inicio">
         <div class="hero" data-aos="zoom-in">
             <h1>ATUN, <span>TRAMITANDO-ANDO</span><br />2026-1</h1>
-            <p>Evidencias, resultados e impacto de la gestión y acompañamiento estudiantil en la Universidad Nacional de Colombia, de manera clara y dinámica.</p>
+            <p>Evidencias, resultados e impacto de la gestión y el acompañamiento estudiantil en la Universidad Nacional de Colombia.</p>
             <div class="sub-info">
                 <span><i class="fa-regular fa-calendar"></i> Periodo 2026-1</span>
                 <span><i class="fa-regular fa-building"></i> Sede Bogotá</span>
@@ -527,7 +490,7 @@
         <!-- ANTECEDENTES -->
         <h2 class="section-title" data-aos="fade-up">Antecedentes</h2>
         <p class="section-sub" data-aos="fade-up" data-aos-delay="80">
-            Diagnóstico inicial, marco teórico y objetivos que guiaron nuestro proyecto.
+            Diagnóstico inicial y objetivos que guiaron nuestro proyecto.
         </p>
 
         <div class="antecedentes-grid" data-aos="fade-up">
@@ -545,66 +508,20 @@
                 <p>Ser referente en orientación de trámites académicos, promoviendo acompañamiento, corresponsabilidad, autonomía y éxito en la trayectoria estudiantil universitaria.</p>
             </div>
         </div>
-
-        <!-- Modelo Bronfenbrenner -->
-        <div class="modelo-bronfe" data-aos="fade-up">
-            <h3><i class="fa-regular fa-circle-nodes" style="color:var(--cian);"></i> Modelo Bronfenbrenner</h3>
-            <p style="margin-bottom:15px;">Entendemos la vida universitaria como un tejido de influencias que van desde lo personal hasta lo global. Nuestro proyecto interviene en el <strong>mesosistema</strong> y <strong>microsistema</strong> para guiar al estudiante.</p>
-            <ul>
-                <li><strong>Microsistema:</strong> Familia, amigos, docentes, tutores.</li>
-                <li><strong>Mesosistema:</strong> Bienestar, ATUN, facultades, pares.</li>
-                <li><strong>Exosistema:</strong> Normativas, resoluciones, calendarios.</li>
-                <li><strong>Macrosistema:</strong> Políticas de inclusión, cultura institucional.</li>
-                <li><strong>Cronosistema:</strong> Cambios institucionales, eventos coyunturales.</li>
-            </ul>
-            <div style="margin-top:15px; background:white; padding:15px; border-radius:12px; font-size:0.9rem;">
-                <p><strong>Modelo de Deserción:</strong> Nuestras iniciativas abordan factores emocionales y de acceso a la información para reducir la incertidumbre y fortalecer la permanencia.</p>
-            </div>
-        </div>
     </section>
 
-    <!-- ========== SECCIÓN 2: PLANEACIÓN ========== -->
-    <section id="planeacion" style="background:#f8fafc; border-radius:40px; padding:80px 24px;">
-        <h2 class="section-title" data-aos="fade-up">Planeación</h2>
-        <p class="section-sub" data-aos="fade-up" data-aos-delay="80">Cronograma de trabajo del semestre 2026-1, desde la socialización hasta el cierre.</p>
-
-        <div style="overflow-x:auto;" data-aos="fade-up">
-            <table class="cronograma-table">
-                <thead>
-                    <tr><th>Semana</th><th>Actividad</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Semana 0 (23–27 mar)</td><td>Socialización normativa (Acuerdo 020 de 2018) y figura de estudiante auxiliar.</td></tr>
-                    <tr><td>Semana 1 (30 mar–03 abr)</td><td>Planeación inicial: revisión de ruta de salud mental y compromisos éticos.</td></tr>
-                    <tr><td>Semana 2 (06–10 abr)</td><td>Análisis de viabilidad: evaluación de propuestas con matriz impacto‑esfuerzo.</td></tr>
-                    <tr><td>Semana 3 (13–17 abr)</td><td>Distribución de roles y actualización de la cartilla en Canva.</td></tr>
-                    <tr><td>Semana 4 (20–24 abr)</td><td>Estudio de población y modelos estadísticos; introducción a Bronfenbrenner.</td></tr>
-                    <tr><td>Semana 5 (27 abr–01 may)</td><td>Consolidación de iniciativa: definición de estrategias para Instagram.</td></tr>
-                    <tr><td>Semana 6 (04–08 may)</td><td>Ajuste de contenidos y aplicación del modelo Bronfenbrenner a casos reales.</td></tr>
-                    <tr><td>Semana 7 (11–15 may)</td><td>Preparación logística: organización de carpetas, síntesis de artículos.</td></tr>
-                    <tr><td>Semana 8 (18–22 may)</td><td>Seguimiento interno y ajustes de diseño en piezas gráficas.</td></tr>
-                    <tr><td>Semana 9 (25–29 may)</td><td>Finalización de insumos y preparación para lanzamiento de talleres.</td></tr>
-                    <tr><td>Semana 10 (01–05 jun)</td><td>Ejecución: Taller 1 de Reubicación y cargue de video instructivo.</td></tr>
-                    <tr><td>Semana 11 (08–12 jun)</td><td>Diseño del calendario de trámites 2026-2 en Canva.</td></tr>
-                    <tr><td>Semana 12 (15–19 jun)</td><td>Evaluación de impacto: acompañamientos itinerantes y sistematización.</td></tr>
-                    <tr><td>Semana 13 (22–26 jun)</td><td>Cierre administrativo y entrega de productos finales.</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- ========== SECCIÓN 3: EJECUCIÓN, EVALUACIÓN Y RESULTADOS ========== -->
+    <!-- ========== SECCIÓN 2: EJECUCIÓN, EVALUACIÓN Y RESULTADOS ========== -->
     <section id="ejecucion">
         <h2 class="section-title" data-aos="fade-up">Ejecución, Evaluación y Resultados</h2>
         <p class="section-sub" data-aos="fade-up" data-aos-delay="80">
             Detalle de las actividades realizadas, cobertura, percepciones y productos generados.
         </p>
 
-        <!-- ===== TALLERES ===== -->
+        <!-- ===== CICLO DE TALLERES ===== -->
         <h3 style="font-size:2rem; color:var(--azul-oscuro); margin:60px 0 20px;" data-aos="fade-right">
             <i class="fa-regular fa-chalkboard-user" style="color:var(--cian);"></i> Ciclo de Talleres ATUN‑TRAMITANDO
         </h3>
-        <p style="margin-bottom:30px; color:#555;">Ocho talleres (dos por temática) con enfoque pedagógico y reflexivo, integrando información, autonomía y gestión emocional.</p>
+        <p style="margin-bottom:30px; color:#555;">Ocho talleres (dos por temática) con enfoque pedagógico y reflexivo, integrando información, autonomía y gestión emocional. A continuación, los resultados de cada uno.</p>
 
         <!-- Taller 1: Cancelación -->
         <div class="taller-card" data-aos="fade-up">
@@ -612,13 +529,13 @@
             <p><strong>Objetivo:</strong> Al finalizar, el estudiante identificará los factores para tomar una decisión informada y coherente con su proyecto de vida respecto a la cancelación de asignaturas en 2026-1.</p>
             <div class="meta">
                 <span><i class="fa-regular fa-calendar"></i> 11 y 13 de mayo</span>
-                <span><i class="fa-regular fa-user"></i> Meta: 20 asistentes por sesión</span>
+                <span><i class="fa-regular fa-user"></i> Meta: 10 asistentes por sesión (según cartilla)</span>
             </div>
             <table class="tabla-asistencia">
                 <thead><tr><th>Sesión</th><th>Asistentes</th><th>% cumplimiento</th></tr></thead>
                 <tbody>
-                    <tr><td>11 de mayo</td><td>6</td><td>30%</td></tr>
-                    <tr><td>13 de mayo</td><td>4</td><td>20%</td></tr>
+                    <tr><td>11 de mayo</td><td>6</td><td>60%</td></tr>
+                    <tr><td>13 de mayo</td><td>17</td><td>170%</td></tr>
                 </tbody>
             </table>
             <div class="frase-destacada">
@@ -632,21 +549,55 @@
             <p><strong>Objetivo:</strong> Al finalizar, el estudiante identificará los factores para tomar una decisión informada y coherente con su proyecto de vida respecto al traslado de programa.</p>
             <div class="meta">
                 <span><i class="fa-regular fa-calendar"></i> 19 y 21 de mayo</span>
-                <span><i class="fa-regular fa-user"></i> Meta: 20 asistentes por sesión</span>
+                <span><i class="fa-regular fa-user"></i> Meta: 10 asistentes por sesión (según cartilla)</span>
             </div>
             <table class="tabla-asistencia">
                 <thead><tr><th>Sesión</th><th>Asistentes</th><th>% cumplimiento</th></tr></thead>
                 <tbody>
-                    <tr><td>19 de mayo</td><td>14</td><td>70%</td></tr>
-                    <tr><td>21 de mayo</td><td>4</td><td>20%</td></tr>
+                    <tr><td>19 de mayo</td><td>14</td><td>140%</td></tr>
+                    <tr><td>21 de mayo</td><td>4</td><td>40%</td></tr>
                 </tbody>
             </table>
+
             <h4>Actividad “Tu árbol de razones”</h4>
+            <div class="arbol-razones">
+                <div class="categoria">
+                    <strong>🌳 Raíces (¿Por qué entré al programa actual?)</strong>
+                    <ul>
+                        <li>El dinero</li>
+                        <li>Me interesaban las mates</li>
+                        <li>Otros estudiantes activos</li>
+                    </ul>
+                </div>
+                <div class="categoria">
+                    <strong>🌳 Tronco (¿Qué ocurre ahora que me hace pensar en el traslado?)</strong>
+                    <ul>
+                        <li>Ambiente estudiantil</li>
+                        <li>Especializarme</li>
+                        <li>Mi desempeño</li>
+                        <li>Mi interés por la otra</li>
+                        <li>No me veo ejerciendo</li>
+                        <li>Proyecto de vida en Bogotá</li>
+                    </ul>
+                </div>
+                <div class="categoria" style="grid-column: 1 / -1;">
+                    <strong>🌳 Ramas (¿Qué espero obtener con el traslado?)</strong>
+                    <ul>
+                        <li><strong>Más popular:</strong> Felicidad</li>
+                        <li>Hacer lo que me gusta</li>
+                        <li>Motivación y seguridad</li>
+                        <li>Salir de mi cámara de eco</li>
+                        <li>Nuevos horizontes</li>
+                        <li>Tranquilidad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4 style="margin-top:20px;">Actividad “Mi río universitario”</h4>
             <ul style="list-style:disc; padding-left:20px; margin:8px 0;">
-                <li>Razones para trasladarse: sitio de residencia, ingresos económicos, futuro profesional.</li>
-                <li>Vinculado con ambiente estudiantil, desempeño actual, cambio de intereses y ejercicio profesional.</li>
-                <li>Esperan obtener felicidad, motivación, gusto por lo que hacen y tranquilidad.</li>
-                <li>Razones por las que se unieron al programa actual: dinero, intereses diferentes, referencias de otros estudiantes.</li>
+                <li><strong>Obstáculos:</strong> dinero perdido, incertidumbre de volver a elegir mal, miedo a arrepentirse.</li>
+                <li><strong>Influencias:</strong> familia, gustos personales.</li>
+                <li><em>“Me gustaría fluir hacia un mejor yo.”</em> — comentario de un estudiante.</li>
             </ul>
         </div>
 
@@ -655,13 +606,14 @@
             <h3>3. Doble titulación</h3>
             <p><strong>Objetivo:</strong> Reconocer los requisitos, implicaciones académicas y administrativas del proceso de doble titulación para valorar su pertinencia según intereses, posibilidades y metas.</p>
             <div class="meta">
-                <span><i class="fa-regular fa-calendar"></i> 26 de mayo</span>
-                <span><i class="fa-regular fa-user"></i> Meta: 20 asistentes</span>
+                <span><i class="fa-regular fa-calendar"></i> 26 de mayo y 1 de junio</span>
+                <span><i class="fa-regular fa-user"></i> Meta: 10 asistentes por sesión (según cartilla)</span>
             </div>
             <table class="tabla-asistencia">
                 <thead><tr><th>Sesión</th><th>Asistentes</th><th>% cumplimiento</th></tr></thead>
                 <tbody>
-                    <tr><td>26 de mayo</td><td>8</td><td>40%</td></tr>
+                    <tr><td>26 de mayo</td><td>8</td><td>80%</td></tr>
+                    <tr><td>1 de junio</td><td>15</td><td>150%</td></tr>
                 </tbody>
             </table>
             <div class="frase-destacada">
@@ -674,24 +626,32 @@
             <h3>4. Reubicación socioeconómica</h3>
             <p><strong>Objetivo:</strong> Identificar con claridad los criterios y requisitos para solicitar la reubicación socioeconómica, tomando una decisión informada según la situación particular y la normatividad vigente.</p>
             <div class="meta">
-                <span><i class="fa-regular fa-calendar"></i> 1 y 5 de junio</span>
-                <span><i class="fa-regular fa-user"></i> Meta: 20 asistentes por sesión</span>
+                <span><i class="fa-regular fa-calendar"></i> 10 de junio</span>
+                <span><i class="fa-regular fa-user"></i> Meta: 10 asistentes (según cartilla)</span>
+                <span><i class="fa-regular fa-star"></i> Invitada especial: Leidy (profesional de acompañamiento)</span>
             </div>
             <table class="tabla-asistencia">
                 <thead><tr><th>Sesión</th><th>Asistentes</th><th>% cumplimiento</th></tr></thead>
                 <tbody>
-                    <tr><td>1 de junio</td><td>10</td><td>50%</td></tr>
-                    <tr><td>5 de junio</td><td>7</td><td>35%</td></tr>
+                    <tr><td>10 de junio</td><td>6</td><td>60%</td></tr>
                 </tbody>
             </table>
-            <p><em>Nota:</em> Los datos de asistencia corresponden al registro oficial del semestre.</p>
+            <p><em>Nota:</em> En esta sesión contamos con la presencia de Leidy, profesional universitaria del área de acompañamiento estudiantil, quien brindó información clave y apoyo a los estudiantes junto al equipo ATUN.</p>
         </div>
 
         <!-- ===== MURO DE LOS LAMENTOS ===== -->
         <h3 style="font-size:2rem; color:var(--azul-oscuro); margin:70px 0 20px;" data-aos="fade-right">
             <i class="fa-regular fa-water" style="color:var(--cian);"></i> Muro de los Lamentos
         </h3>
-        <p style="margin-bottom:20px; color:#555;">Dinámica participativa realizada el 15 y 28 de mayo en la Plaza Central, la Perola y la Playita. Los estudiantes expresaron sus experiencias asociándolas con animales marinos.</p>
+
+        <div class="muro-descripcion" data-aos="fade-up">
+            <p><strong>Objetivo:</strong> Propiciar un acercamiento directo y empático con la comunidad estudiantil en espacios comunes de la universidad.</p>
+            <p><strong>Dinámica:</strong> Recorridos por puntos estratégicos (edificio viejo de Enfermería, plazas centrales y la Playita) los días 15 y 28 de mayo. Se realizaron dos preguntas orientadoras:</p>
+            <ul style="list-style:disc; padding-left:20px; margin-top:8px;">
+                <li><strong>El termómetro del trámite:</strong> ¿Cómo te fue en tu trámite?</li>
+                <li><strong>La metáfora marina:</strong> Si tu trámite fuera un animal del mar, ¿cuál sería?</li>
+            </ul>
+        </div>
 
         <div class="muro-grid" data-aos="fade-up">
             <div class="muro-item">
@@ -725,7 +685,7 @@
         <div class="grid-2" data-aos="fade-up">
             <div class="card">
                 <div class="img-container">
-                    <img src="https://picsum.photos/seed/reel1/600/400" alt="Reel Reubicación" />
+                    <img src="imagenes/reel-reubicacion.jpg" alt="Reel Reubicación" onerror="this.src='https://picsum.photos/seed/reel1/600/400'"/>
                 </div>
                 <h4>Reel: Reubicación Socioeconómica</h4>
                 <p>Paso a paso para diligenciar la solicitud y mitos más comunes. Publicado el 2 de junio.</p>
@@ -733,7 +693,7 @@
             </div>
             <div class="card">
                 <div class="img-container">
-                    <img src="https://picsum.photos/seed/reel2/600/400" alt="Reel Traslado" />
+                    <img src="imagenes/reel-traslado.jpg" alt="Reel Traslado" onerror="this.src='https://picsum.photos/seed/reel2/600/400'"/>
                 </div>
                 <h4>Reel: Traslado de Programa</h4>
                 <p>Requisitos y plazos, con testimonios de estudiantes que lo lograron. Publicado el 19 de mayo.</p>
@@ -760,7 +720,7 @@
         <p style="margin-bottom:30px; color:#555;">Diseño de un calendario visual gigante (insumo para el siguiente periodo REDai) con las fechas clave de reubicación, doble titulación, cancelaciones, etc.</p>
 
         <div class="img-container" data-aos="fade-up">
-            <img src="https://picsum.photos/seed/calendario/1200/500" alt="Calendario de trámites 2026-2" />
+            <img src="imagenes/calendario-2026-2.jpg" alt="Calendario de trámites 2026-2" onerror="this.src='https://picsum.photos/seed/calendario/1200/500'"/>
             <p style="padding:10px 0 0 10px; font-size:0.85rem; color:#777;">Vista previa del calendario diseñado en Canva.</p>
         </div>
 
@@ -773,14 +733,14 @@
         <div class="grid-2" data-aos="fade-up">
             <div class="card">
                 <div class="img-container">
-                    <img src="https://picsum.photos/seed/web1/600/400" alt="Captura página web" />
+                    <img src="imagenes/web-captura1.jpg" alt="Captura página web" onerror="this.src='https://picsum.photos/seed/web1/600/400'"/>
                 </div>
                 <h4>Página de inicio</h4>
                 <p>Diseño responsivo con identidad ATUN, navegación clara y secciones bien definidas.</p>
             </div>
             <div class="card">
                 <div class="img-container">
-                    <img src="https://picsum.photos/seed/web2/600/400" alt="Captura sección talleres" />
+                    <img src="imagenes/web-captura2.jpg" alt="Captura sección talleres" onerror="this.src='https://picsum.photos/seed/web2/600/400'"/>
                 </div>
                 <h4>Resultados de talleres</h4>
                 <p>Tablas de asistencia, percepciones y evidencias fotográficas de cada taller.</p>
@@ -788,7 +748,7 @@
         </div>
     </section>
 
-    <!-- ========== SECCIÓN 4: CIERRE ========== -->
+    <!-- ========== SECCIÓN 3: CIERRE Y LOGROS ========== -->
     <section id="cierre">
         <h2 class="section-title" data-aos="fade-up">Cierre y Logros</h2>
         <p class="section-sub" data-aos="fade-up" data-aos-delay="80">Impacto cuantitativo y cualitativo del proyecto ATUN 2026-1.</p>
@@ -799,7 +759,7 @@
                 <p><strong>Talleres realizados</strong><br />(2 por temática)</p>
             </div>
             <div class="card">
-                <span class="numero">53</span>
+                <span class="numero">70</span>
                 <p><strong>Estudiantes participantes</strong><br />(en talleres presenciales)</p>
             </div>
             <div class="card">
