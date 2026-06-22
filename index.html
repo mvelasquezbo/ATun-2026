@@ -412,6 +412,20 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
         }
 
+        /* ---------- ITINERANTE ---------- */
+        .itinerante-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .itinerante-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ---------- INSTAGRAM ---------- */
         .instagram-embed {
             display: flex;
@@ -798,6 +812,28 @@
                 </tbody>
             </table>
             <p style="text-align:center; color:#555; margin-top:10px;"><i class="fa-regular fa-circle-check" style="color:var(--cian);"></i> Cumplimiento total del 176% frente a la meta de 70 asistentes.</p>
+        </div>
+
+        <!-- ===== SECCIÓN ITINERANTE ===== -->
+        <h3 style="font-size:2rem; color:var(--azul-oscuro); margin:70px 0 20px;" data-aos="fade-right">
+            <i class="fa-regular fa-people-arrows" style="color:var(--cian);"></i> Acompañamiento Itinerante
+        </h3>
+        <div style="margin-bottom:30px; color:#555;" data-aos="fade-up">
+            <p>
+                El equipo ATUN también realizó un acompañamiento itinerante en la Plaza Ché, acercando la información y el apoyo emocional a los estudiantes en sus entornos cotidianos. Estas jornadas permitieron resolver dudas en el momento y fortalecer la confianza de la comunidad estudiantil.
+            </p>
+        </div>
+
+        <div class="itinerante-grid" data-aos="fade-up">
+            <div class="img-container">
+                <img src="imagenes/itinerante-1.jpg" alt="Itinerante 1" />
+            </div>
+            <div class="img-container">
+                <img src="imagenes/itinerante-2.HEIC" alt="Itinerante 2" />
+            </div>
+            <div class="img-container">
+                <img src="imagenes/itinerante-3.jpg" alt="Itinerante 3" />
+            </div>
         </div>
 
         <!-- ===== MAR DE LOS LAMENTOS ===== -->
