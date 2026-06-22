@@ -184,6 +184,32 @@
             color: var(--azul-oscuro);
         }
 
+        /* ---------- BOTÓN DE DESCARGA ---------- */
+        .btn-descarga {
+            display: inline-block;
+            background: var(--azul-oscuro);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .btn-descarga:hover {
+            background: var(--azul-medio);
+            transform: scale(1.03);
+            color: white;
+        }
+
+        .btn-descarga i {
+            margin-right: 10px;
+            color: var(--cian);
+        }
+
         /* ---------- INICIO ---------- */
         #inicio {
             padding-top: 120px;
@@ -953,7 +979,7 @@
         <!-- Métricas detalladas (extraídas de la cartilla) -->
         <div data-aos="fade-up" style="margin-top: 40px;">
             <h4 style="color:var(--azul-oscuro); font-size:1.4rem; margin-bottom:15px;">
-                <i class="fa-regular fa-chart-bar" style="color:var(--cian);"></i> Métricas de rendimiento por reel
+                <i class="fa-regular fa-chart-bar" style="color:var(--cian);"></i> Métricas de rendimiento por reel (corte al 22 de junio de 2026)
             </h4>
             <table class="tabla-metricas">
                 <thead>
@@ -1072,6 +1098,13 @@
         <div class="img-container" data-aos="fade-up">
             <img src="imagenes/4.png" alt="Calendario - foto 4" />
         </div>
+
+        <!-- ===== ENLACE DE DESCARGA DEL CALENDARIO ===== -->
+        <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+            <a href="calendario-2026-2.pdf" download class="btn-descarga">
+                <i class="fa-regular fa-file-pdf"></i> Descargar calendario de trámites (PDF)
+            </a>
+        </div>
     </section>
 
     <!-- ========== SECCIÓN 3: CIERRE Y LOGROS ========== -->
@@ -1104,6 +1137,13 @@
                 “ATUN no solo informa, forma. Hemos fortalecido la autonomía estudiantil, reducido la incertidumbre y construido herramientas que perdurarán más allá del semestre. Gracias a cada estudiante que confió en nuestro acompañamiento.”
             </p>
             <p style="text-align:center; margin-top:20px; color:#777;">— Equipo ATUN · REDai 2026-1</p>
+        </div>
+
+        <!-- ===== ENLACE DE DESCARGA DE LA CARTILLA COMPLETA ===== -->
+        <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
+            <a href="cartilla-ATUN-2026-1.pdf" download class="btn-descarga">
+                <i class="fa-regular fa-file-pdf"></i> Descargar cartilla completa 2026-1 (PDF)
+            </a>
         </div>
     </section>
 
